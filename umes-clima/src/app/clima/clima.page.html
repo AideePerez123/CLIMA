@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Consulta de clima</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-select
+      label="País"
+      placeholder="Seleccione un país"
+      [(ngModel)]="paisSeleccionado"
+      (ionChange)="consultarClima()"
+      interface="popover"
+    >
+      <ion-select-option *ngFor="let pais of paises" [value]="pais">
+        {{ pais.nombre }}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <div *ngIf="cargando" class="ion-text-center ion-margin-top">
+    <ion-spinner name="crescent"></ion-spinner>
+    <p>Cargando clima...</p>
+  </div>
+
+  <ion-card *ngIf="!cargando && clima" class="ion-margin-top">
+    <ion-card-header>
+      <ion-card-title>{{ clima.pais }}</ion-card-title>
+      <ion-card-subtitle>{{ clima.capital }}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p><strong>Condición meteorológica:</strong> {{ clima.condicion }}</p>
+      <p><strong>Temperatura:</strong> {{ clima.temperatura }} °C</p>
+      <p><strong>Sensación térmica:</strong> {{ clima.sensacionTermica }} °C</p>
+      <p><strong>Humedad:</strong> {{ clima.humedad }}%</p>
+      <p><strong>Velocidad del viento:</strong> {{ clima.velocidadViento }} km/h</p>
+      <p><strong>Fecha y hora de la medición:</strong> {{ clima.fechaHora }}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

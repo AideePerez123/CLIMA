@@ -1,0 +1,22 @@
+ion-content {
+  --background: #f4f5f8;
+}
+
+ion-card {
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+ion-card-content p {
+  margin: 10px 0;
+  font-size: 1rem;
+}
+
+ion-item {
+  margin-bottom: 16px;
+  border-radius: 12px;
+}
+
+ion-spinner {
+  margin-bottom: 12px;
+}
